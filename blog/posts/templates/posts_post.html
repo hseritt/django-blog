@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Post</title>
+</head>
+<body>
+	<h1>
+		{{ post.title }}
+	</h1>
+	<p>Created: {{ post.created }}</p>
+
+	<p>
+		{{ post.formatted_markdown|safe }}
+	</p>
+</body>
+</html>
