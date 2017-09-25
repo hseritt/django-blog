@@ -7,6 +7,19 @@ from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 
 
+class Category(models.Model):
+    parent = models.ForeignKey('self')
+    name = models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        unique_together = (
+            ('name', 'parent'),
+        )
+
+    def __unicode__(self):
+        return self.name
+
+
 class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)
     author = models.ForeignKey(User)
@@ -14,6 +27,7 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
+    categories = models.ManyToManyField(Category)
 
     @property
     def formatted_markdown(self):

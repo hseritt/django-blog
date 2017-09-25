@@ -1,16 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Post</title>
-</head>
+{% include 'common_headers.html' %}
 <body>
-	<h1>
-		{{ post.title }}
-	</h1>
-	<p>Created: {{ post.created }}</p>
+	<div class="container">
+		
+		{% include 'common_head.html' %}
 
-	<p>
-		{{ post.formatted_markdown|safe }}
-	</p>
+		{% include 'common_nav.html' %}
+
+		<article>
+			{% if request.user.username == 'admin' %}
+				<p>
+					<a href="/admin/posts/post/{{ post.id }}/change/">
+						Edit Article
+					</a>
+				</p>
+			{% endif %}
+			<h1>
+				{{ post.title }}
+			</h1>
+			<p>
+				Created: {{ post.created }} <br>
+				By: {{ post.author.get_full_name }}
+			</p>
+			<p>
+				{{ post.formatted_markdown|safe }}
+			</p>
+		</article>
+
+		<footer>
+			dev.prodigi.us - &copy; 2017 all rights reserved 
+		</footer>
+	</div>
 </body>
 </html>
