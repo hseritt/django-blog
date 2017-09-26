@@ -13,9 +13,31 @@ def post_detail(request, post_id):
         request,
         'posts_post.html',
         {
-        	'category_list': category_list,
-        	'page_title': 'Post: {}'.format(post.title),
+            'category_list': category_list,
+            'page_title': 'Post: {}'.format(post.title),
             'post': post,
         }
     )
 
+
+def posts_filtered(request):
+
+    filt = request.GET['category_name']
+
+    category = Category.objects.get(name=filt)
+
+    post_list = Post.objects.filter(
+        categories__in=[category,]
+    )
+
+    category_list = Category.objects.filter(display=True)
+
+    return render(
+        request,
+        'common_index.html',
+        {
+            'category_list': category_list,
+            'page_title': 'dev.prodidi.us',
+            'post_list': post_list,
+        },
+    )

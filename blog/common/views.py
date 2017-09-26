@@ -22,11 +22,13 @@ def index(request):
 
 
 def about(request):
+    category_list = Category.objects.filter(display=True)
 
     return render(
         request,
         'common_about.html',
         {
+            'category_list': category_list,
             'page_title': 'About Harlin',
         }
     )
