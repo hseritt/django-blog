@@ -1,25 +1,92 @@
 <nav>
-	<h2>Links</h2>
-	<p>
-		<a href="/about/">
-			About
-		</a>
-	</p>
+	<h3 class="links_header">Links</h2>
+	<ul>
+		<li>
+			<a href="/">
+				Home
+			</a>
+		</li>
+		<li>
+			<a href="/about/">
+				About
+			</a>
+		</li>
+	</ul>
+	
 	<h3>Social Media</h3>
 	<ul>
 		<li>
-			<a href="">
+			<a href="https://twitter.com/HarlinAtWork">
 				Twitter
 			</a>
 		</li>
 		<li>
-			<a href="">
+			<a href="https://github.com/hseritt">
 				Github
 			</a>
 		</li>
-		<li><a href="">
-			LinkedIn
+		<li>
+			<a href="https://www.linkedin.com/in/harlin-seritt/">
+				LinkedIn
+			</a>
+		</li>
+		<li>
+			<a href="https://about.me/harlinseritt">
+				About.me
 			</a>
 		</li>
 	</ul>
+
+	<h3>Posts by Category</h3>
+	
+	<ul>
+		{% for category in category_list %}
+			<li>
+				<a href="/posts/filter/?category_name={{ category.name }}">
+					{{ category.name }}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<h3>Recommendations</h3>
+
+	<ul>
+		<li>
+			<a href="https://simpleprogrammer.com">
+				SimpleProgrammer.com / John Sonmez
+			</a>
+		</li>
+		<li>
+			<a href="http://jockopodcast.com">
+				Jocko Willink's Podcasts
+			</a>
+		</li>
+		<li>
+			<a href="https://talkpython.fm">
+				TalkPython - Michael Kennedy
+			</a>
+		</li>
+		<li>
+			<a href="https://www.pydanny.com">
+				PyDanny
+			</a>
+		</li>
+		<li>
+			<a href="http://www.holovaty.com">
+				Adrian Holovaty
+			</a>
+		</li>
+		<li>
+			<a href="https://www.kennethreitz.org">
+				Kenneth Reitz
+			</a>
+		</li>
+		<li>
+			<a href="https://tim.blog">
+				Tim Ferriss
+			</a>
+		</li>
+	</ul>
+
 </nav>

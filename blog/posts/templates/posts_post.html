@@ -6,7 +6,7 @@
 
 		{% include 'common_nav.html' %}
 
-		<article>
+		<article class="article_content">
 			{% if request.user.username == 'admin' %}
 				<p>
 					<a href="/admin/posts/post/{{ post.id }}/change/">
@@ -14,21 +14,18 @@
 					</a>
 				</p>
 			{% endif %}
-			<h1>
+			<h3>
 				{{ post.title }}
-			</h1>
-			<p>
-				Created: {{ post.created }} <br>
-				By: {{ post.author.get_full_name }}
-			</p>
+			</h3>
+
+			{% include 'posts_post_info.html' %}
+			
 			<p>
 				{{ post.formatted_markdown|safe }}
 			</p>
 		</article>
 
-		<footer>
-			dev.prodigi.us - &copy; 2017 all rights reserved 
-		</footer>
+		{% include 'common_footer.html' %}
 	</div>
 </body>
 </html>

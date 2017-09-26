@@ -15,9 +15,21 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from common.views import about, index
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^markdownx/', include('markdownx.urls')),
     url(r'^post/', include('posts.urls')),
+    url(
+        regex=r'^$',
+        view=index,
+        name='common_index',
+    ),
+    url(
+        regex=r'^about/$',
+        view=about,
+        name='common_about',
+    )
 ]

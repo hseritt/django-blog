@@ -10,6 +10,7 @@ from markdownx.utils import markdownify
 class Category(models.Model):
     parent = models.ForeignKey('self')
     name = models.CharField(max_length=50, unique=True)
+    display = models.BooleanField(default=True)
 
     class Meta:
         unique_together = (
@@ -24,7 +25,8 @@ class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)
     author = models.ForeignKey(User)
     content = MarkdownxField()
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True, editable=True)
+    published = models.DateTimeField()
     modified = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
     categories = models.ManyToManyField(Category)

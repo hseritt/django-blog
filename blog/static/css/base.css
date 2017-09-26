@@ -1,5 +1,6 @@
 body {
 	font-family: 'Open Sans', sans-serif;
+	background-color: white;
 }
 
 pre {
@@ -11,6 +12,10 @@ pre {
 
 p.header_text {
 	color: white;
+}
+
+p.post_info {
+	font-size: 13px;
 }
 
 div.container {
@@ -25,6 +30,13 @@ header, footer {
 	text-align: center;
 }
 
+header {
+	left: 0;
+	right: 0;
+	box-shadow: 50px 0px 0px 0px #000;
+	margin-left: -20px;
+}
+
 footer {
 	font-size: 10px;
 	bottom: 0;
@@ -35,15 +47,58 @@ footer {
 
 nav {
 	float: right;
-	max-width: 120px
-	padding: 20em;
-	margin-right: 150px;
+	max-width: 80px
+	padding: 10em;
+	margin-right: 100px;
 	margin-left: 50px;
 }
 
 article {
 	margin-left: 170px;
+	margin-right: 100px;
 	border-left: 1px solid gray;
+	/* border-right: 1px solid gray; */
 	padding: 1em;
 	overflow: hidden;
+	min-height: 1000px;
 }
+
+section.article_blurb {
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+
+article.article_content {
+	margin-top: 30px;
+}
+
+h2.posts_header {
+	margin-bottom: 50px;
+}
+
+h3.links_header {
+	margin-top: 60px;
+}
+
+a {
+	color: #535456;
+	text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: #313233;
+    text-decoration: underline;
+}
+
+a.mp_link {
+	color: white;
+}
+
+img.about_pic {
+	border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 250px;
+}
+
