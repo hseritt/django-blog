@@ -131,6 +131,11 @@ STATICFILES_DIRS = [
 ]
 
 
+# Site stuff
+
+SITE_NAME = 'dev.prodigi.us'
+
+
 # Markdownx stuff
 
 MARKDOWNX_MARKDOWN_EXTENSIONS = [

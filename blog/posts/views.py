@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from blog.settings import SITE_NAME
 from .models import Category, Post
 
 def post_detail(request, post_id):
@@ -37,7 +38,7 @@ def posts_filtered(request):
         'common_index.html',
         {
             'category_list': category_list,
-            'page_title': 'dev.prodidi.us',
+            'page_title': SITE_NAME,
             'post_list': post_list,
         },
     )
