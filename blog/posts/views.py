@@ -37,7 +37,7 @@ def posts_filtered(request):
 
     post_list = Post.objects.filter(
         categories__in=[category,]
-    )
+    ).order_by('-created')
 
     category_list = Category.objects.filter(display=True)
 
