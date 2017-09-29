@@ -22,6 +22,11 @@ div.container {
 	width: 100%;
 }
 
+div.disqus_thread {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
 header, footer {
 	padding: 0.5em;
 	color: white;
