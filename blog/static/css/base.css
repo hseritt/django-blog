@@ -91,6 +91,12 @@ a:hover {
     text-decoration: underline;
 }
 
+a.article_link {
+	color: #2e60b2;
+	font-weight: bold;
+	font-size: smaller;
+}
+
 a.mp_link {
 	color: white;
 }
