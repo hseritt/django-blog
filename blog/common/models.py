@@ -34,3 +34,16 @@ class SocialMediaLink(BlogLink):
         verbose_name_plural = 'Social Media Links'
     def __unicode__(self):
         return 'Social Media Link: {}'.format(self.name)
+
+
+class PageElement(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    text = models.TextField()
+    is_visible = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = 'Page Element'
+        verbose_name_plural = 'Page Elements'
+
+    def __unicode__(self):
+        return self.name

@@ -4,7 +4,10 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from blog.settings import SITE_NAME
 from posts.models import Category, Post
-from common.models import SiteLink, RecommendedLink, SocialMediaLink
+from common.models import PageElement, SiteLink, RecommendedLink, SocialMediaLink
+
+
+tag_line = PageElement.objects.get(name='Tag Line', is_visible=True)
 
 
 def index(request):
@@ -25,6 +28,7 @@ def index(request):
             'recommended_link_list': recommended_link_list,
             'site_link_list': site_link_list,
             'social_media_link_list': social_media_link_list,
+            'tag_line': tag_line,
         },
     )
 
@@ -44,5 +48,6 @@ def about(request):
             'recommended_link_list': recommended_link_list,
             'site_link_list': site_link_list,
             'social_media_link_list': social_media_link_list,
+            'tag_line': tag_line,
         }
     )
