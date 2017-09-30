@@ -2,30 +2,48 @@
 
 <div id="disqus_thread" class="disqus_thread">
 	<script>
+
 		/*
 		DISQUS.reset({
 		  reload: true,
 		  config: function () {
 		    this.page.identifier = "{{ request.path }}";
-		    this.page.url = "http://dev.prodigi.us";
+		    this.page.url = "http://dev.prodigi.us/#!newthread";
 		  }
 		});
 		*/
 
-		var disqus_config = function () {
-		    this.page.url = "http://dev.prodigi.us";  // Replace PAGE_URL with your page's canonical URL variable
-		    this.page.identifier = "{{ request.path }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-		};
-		(function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
-		    var d = document, s = d.createElement('script');
-		    
-		    s.src = 'https://dev-prodigi-us.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
-		    
-		    s.setAttribute('data-timestamp', +new Date());
-		    (d.head || d.body).appendChild(s);
-		})();
-
-
+	    /**
+	     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT 
+	     *  THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR 
+	     *  PLATFORM OR CMS.
+	     *  
+	     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: 
+	     *  https://disqus.com/admin/universalcode/#configuration-variables
+	     */
+	    
+	    var disqus_config = function () {
+	        // Replace PAGE_URL with your page's canonical URL variable
+	        this.page.url = "http://dev.prodigi.us{{ request.path }}";  
+	        
+	        // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	        this.page.identifier = "{{ request.path }}"; 
+	    };
+	    
+	    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+	        var d = document, s = d.createElement('script');
+	        
+	        // IMPORTANT: Replace EXAMPLE with your forum shortname!
+	        s.src = 'https://dev-prodigi-us.disqus.com/embed.js';
+	        
+	        s.setAttribute('data-timestamp', +new Date());
+	        (d.head || d.body).appendChild(s);
+	    })();
 	</script>
-	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+	<noscript>
+	    Please enable JavaScript to view the 
+	    <a href="https://disqus.com/?ref_noscript" rel="nofollow">
+	        comments powered by Disqus.
+	    </a>
+	</noscript>
 </div>
