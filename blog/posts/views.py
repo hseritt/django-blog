@@ -8,6 +8,7 @@ from common.models import PageElement, SiteLink, RecommendedLink, SocialMediaLin
 
 
 tag_line = PageElement.objects.get(name='Tag Line', is_visible=True)
+footer_text = PageElement.objects.get(name='Footer Text', is_visible=True)
 
 
 def post_detail(request, post_id):
@@ -23,6 +24,7 @@ def post_detail(request, post_id):
         'posts_post.html',
         {
             'category_list': category_list,
+            'footer_text': footer_text,
             'page_title': 'Post: {}'.format(post.title),
             'post': post,
             'recommended_link_list': recommended_link_list,
@@ -54,6 +56,7 @@ def posts_filtered(request):
         'common_index.html',
         {
             'category_list': category_list,
+            'footer_text': footer_text,
             'page_title': SITE_NAME,
             'post_list': post_list,
             'recommended_link_list': recommended_link_list,
