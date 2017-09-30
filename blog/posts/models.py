@@ -13,6 +13,8 @@ class Category(models.Model):
     display = models.BooleanField(default=True)
 
     class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
         unique_together = (
             ('name', 'parent'),
         )
