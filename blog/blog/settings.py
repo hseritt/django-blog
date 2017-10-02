@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'markdownx',
     'common',
     'posts',
+    'messaging',
 ]
 
 MIDDLEWARE = [

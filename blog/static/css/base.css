@@ -117,3 +117,41 @@ img.about_pic {
     width: 250px;
 }
 
+th {
+	text-align: left;
+	vertical-align: top;
+}
+
+input[type="text"], input[type="email"] {
+    width: 300px;
+    height: 25px;
+    font-size: 14px;
+}
+
+input[type="submit"] {
+	/* -webkit-appearance: none; */
+	-webkit-appearance: button;
+	width: 10em;  height: 2em;
+	font-size: 15px;
+	display: inline-block;
+}
+
+textarea {
+	width: 300px;
+	font-size: 14px;
+}
+
+table {
+	border-spacing: 10px;
+}
+
+span.field_label {
+	display: block;
+	margin-top: 7px;
+}
+
+span.field_element {
+	display: block;
+	margin-top: 7px;
+}
+

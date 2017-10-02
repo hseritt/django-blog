@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from common.views import about, index
+from messaging.views import contact
 
 
 urlpatterns = [
@@ -31,5 +32,10 @@ urlpatterns = [
         regex=r'^about/$',
         view=about,
         name='common_about',
+    ),
+    url(
+        regex=r'^contact/$',
+        view=contact,
+        name='messaging_contact'
     )
 ]
