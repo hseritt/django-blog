@@ -36,10 +36,12 @@ header, footer {
 }
 
 header {
+	top: 0;
 	left: 0;
 	right: 0;
 	box-shadow: 50px 0px 0px 0px #000;
 	margin-left: -20px;
+	margin-top: -10px;
 }
 
 footer {
