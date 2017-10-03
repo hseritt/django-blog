@@ -4,34 +4,24 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from blog.settings import SITE_NAME
 from .models import Category, Post
-from common.models import PageElement, SiteLink, RecommendedLink, SocialMediaLink
-
-
-tag_line = PageElement.objects.get(name='Tag Line', is_visible=True)
-footer_text = PageElement.objects.get(name='Footer Text', is_visible=True)
+from common.contexts import common_view_context
 
 
 def post_detail(request, post_id):
 
     post = Post.objects.get(pk=post_id)
-    category_list = Category.objects.filter(display=True)
-    site_link_list = SiteLink.objects.filter(is_visible=True)
-    recommended_link_list = RecommendedLink.objects.filter(is_visible=True)
-    social_media_link_list = SocialMediaLink.objects.filter(is_visible=True)
+    
+    view_context = {
+        'page_title': post.title,
+        'post': post,
+    }
+
+    view_context.update(common_view_context)
 
     return render(
         request,
         'posts_post.html',
-        {
-            'category_list': category_list,
-            'footer_text': footer_text,
-            'page_title': 'Post: {}'.format(post.title),
-            'post': post,
-            'recommended_link_list': recommended_link_list,
-            'site_link_list': site_link_list,
-            'social_media_link_list': social_media_link_list,
-            'tag_line': tag_line,
-        }
+        view_context,
     )
 
 
@@ -45,23 +35,15 @@ def posts_filtered(request):
         categories__in=[category,]
     ).order_by('-created')
 
-    category_list = Category.objects.filter(display=True)
+    view_context = {
+        'page_title': 'Post by Category: {}'.format(category.name),
+        'post_list': post_list,
+    }
 
-    site_link_list = SiteLink.objects.filter(is_visible=True)
-    recommended_link_list = RecommendedLink.objects.filter(is_visible=True)
-    social_media_link_list = SocialMediaLink.objects.filter(is_visible=True)
+    view_context.update(common_view_context)
 
     return render(
         request,
         'common_index.html',
-        {
-            'category_list': category_list,
-            'footer_text': footer_text,
-            'page_title': SITE_NAME,
-            'post_list': post_list,
-            'recommended_link_list': recommended_link_list,
-            'site_link_list': site_link_list,
-            'social_media_link_list': social_media_link_list,
-            'tag_line': tag_line,
-        },
+        view_context,
     )
