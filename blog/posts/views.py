@@ -7,9 +7,9 @@ from .models import Category, Post
 from common.contexts import common_view_context
 
 
-def post_detail(request, post_id):
+def post_detail(request, slugged_title):
 
-    post = Post.objects.get(pk=post_id)
+    post = Post.objects.get(slugged_title=slugged_title)
     
     view_context = {
         'page_title': post.title,

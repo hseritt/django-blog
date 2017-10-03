@@ -32,6 +32,7 @@ class Post(models.Model):
     modified = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
     categories = models.ManyToManyField(Category)
+    slugged_title = models.SlugField(max_length=100, unique=True)
 
     @property
     def formatted_markdown(self):

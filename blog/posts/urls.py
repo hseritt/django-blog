@@ -5,7 +5,7 @@ from .views import post_detail, posts_filtered
 
 urlpatterns = [
     url(
-    	regex=r'^(?P<post_id>\d+)/$',
+    	regex=r'^(?P<slugged_title>.+)/$',
     	view=post_detail,
     	name='post_detail',
     ),
