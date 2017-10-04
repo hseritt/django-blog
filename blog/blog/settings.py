@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = env.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.ALLOWED_HOSTS
 
 
 # Application definition
@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'blog',
-        'HOST': '127.0.0.1',
-        'USERNAME': os.environ['BLOGADMIN_UID'],
-        'PASSWORD': os.environ['BLOGADMIN_PWD'],
-        'PORT': '5432',
+        'NAME': env.DBNAME,
+        'HOST': env.DBHOST,
+        'USERNAME': env.DBUSER,
+        'PASSWORD': env.DBPASSWD,
+        'PORT': env.DBPORT,
     }
 }
 

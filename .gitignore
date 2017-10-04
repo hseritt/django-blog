@@ -20,3 +20,4 @@ tests/report/
 sync2prod.sh
 env.py
 databases/
+clear_pyc.sh
