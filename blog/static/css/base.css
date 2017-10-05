@@ -20,6 +20,8 @@ p {
 
 p.header_text {
 	color: white;
+	padding: 10px;
+	margin-bottom: -10px;
 }
 
 p.post_info {
@@ -73,10 +75,7 @@ nav {
 }
 
 article {
-	margin-left: 170px;
-	margin-right: 50px;
 	border-left: 1px solid gray;
-	/* border-right: 1px solid gray; */
 	padding: 1em;
 	overflow: hidden;
 	min-height: 1000px;
