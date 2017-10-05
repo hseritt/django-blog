@@ -1,0 +1,24 @@
+<article>
+					
+	{% for post in post_list %}
+		<section class="article_blurb">
+			<h3>
+				{{ post.title }}
+			</h3>
+
+			{% include 'posts_post_info.html' %}
+
+			<p>
+				{{ post.formatted_markdown|safe|truncatewords_html:50 }}
+			</p>
+
+			<p>
+				<a href="/post/{{ post.slugged_title }}/" class="article_link">
+					>>> MORE
+				</a>
+			</p>
+		</section>
+
+	{% endfor %}
+
+</article>

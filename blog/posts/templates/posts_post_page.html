@@ -1,0 +1,21 @@
+<article class="article_content">
+	{% if request.user.username == 'admin' %}
+		<p>
+			<a href="/admin/posts/post/{{ post.id }}/change/">
+				Edit Article
+			</a>
+		</p>
+	{% endif %}
+	<h3>
+		{{ post.title }}
+	</h3>
+
+	{% include 'posts_post_info.html' %}
+	
+	<p>
+		{{ post.formatted_markdown|safe }}
+	</p>
+
+	{% include 'posts_disqus_thread.html' %}
+	
+</article>

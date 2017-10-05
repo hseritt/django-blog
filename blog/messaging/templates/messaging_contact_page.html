@@ -1,0 +1,32 @@
+<article class="article_content">
+	<h2>Contact</h2>
+
+	<p>
+		Please feel free to send me a note, suggestion or correction. I'll be happy to look into it.
+	</p>
+
+	<form action="" method="POST">
+		{% csrf_token %}
+		<div class="contact_form">
+			{% for field in contact_form %}
+			    	<span class="field_errors">
+			        	{{ field.errors }}
+			        </span>
+			        <span class="field_label">
+			        	{{ field.label_tag }}
+			        </span>
+			        <br>
+			        <span class="field_element">
+			        	{{ field }}
+			        </span>
+			        {% if field.help_text %}
+			        <p class="help">{{ field.help_text|safe }}</p>
+			        {% endif %}
+			{% endfor %}
+		</div>
+		<p>
+        	<input type="submit" value="Send Message" />
+        </p>
+	</form>
+
+</article>

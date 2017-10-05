@@ -4,41 +4,21 @@
 		
 		{% include 'common_head.html' %}
 
-		{% include 'common_nav.html' %}
+		<div class="row">
 
-		<article class="article_content">
-			<h2>Contact</h2>
+			<div class="col-sm-8">
+				
+				{% include 'messaging_contact_page.html' %}
 
-			<p>
-				Please feel free to send me a note, suggestion or correction. I'll be happy to look into it.
-			</p>
+			</div>
 
-			<form action="" method="POST">
-				{% csrf_token %}
-				{% for field in contact_form %}
-				    <div class="contact_form">
-				    	<span class="field_errors">
-				        	{{ field.errors }}
-				        </span>
-				        <span class="field_label">
-				        	{{ field.label_tag }}
-				        </span>
-				        <br>
-				        <span class="field_element">
-				        	{{ field }}
-				        </span>
-				        {% if field.help_text %}
-				        <p class="help">{{ field.help_text|safe }}</p>
-				        {% endif %}
-				    </div>
-				{% endfor %}
-				<p>
-		        	<input type="submit" value="Send Message" />
-		        </p>
-			</form>
+			<div class="col-sm-4">
 
-		</article>
+				{% include 'common_nav.html' %}
 
+			</div>
+
+		</div>
 		{% include 'common_footer.html' %}
 	</div>
 </body>

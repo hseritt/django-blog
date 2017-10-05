@@ -1,5 +1,6 @@
 body {
 	font-family: 'Open Sans', sans-serif;
+	font-size: 15.5px;
 	background-color: white;
 }
 
@@ -7,7 +8,14 @@ pre {
 	font-family: 'Source Code Pro', monospace;
 	font-size: 14px;
 	background-color: lightgrey;
-	padding: 1em;
+	padding: 2em;
+	margin-top: 35px;
+	margin-bottom: 35px;
+	line-height: 130%;
+}
+
+p {
+	line-height: 160%;
 }
 
 p.header_text {
@@ -16,6 +24,10 @@ p.header_text {
 
 p.post_info {
 	font-size: 13px;
+}
+
+div.contact_form {
+	margin-top: 50px;
 }
 
 div.container {
@@ -53,7 +65,7 @@ footer {
 }
 
 nav {
-	float: right;
+	/* float: right; */
 	max-width: 80px
 	padding: 10em;
 	margin-right: 100px;
@@ -62,7 +74,7 @@ nav {
 
 article {
 	margin-left: 170px;
-	margin-right: 100px;
+	margin-right: 50px;
 	border-left: 1px solid gray;
 	/* border-right: 1px solid gray; */
 	padding: 1em;
@@ -83,8 +95,17 @@ h2.posts_header {
 	margin-bottom: 50px;
 }
 
+h2 {
+	margin-bottom: 25px;
+}
+
 h3.links_header {
 	margin-top: 60px;
+}
+
+h4 {
+	font-weight: bold;
+	margin-top: 25px;
 }
 
 h4.comments_welcome {
@@ -92,7 +113,7 @@ h4.comments_welcome {
 }
 
 a {
-	color: #535456;
+	color: gray;
 	text-decoration: none;
 }
 
@@ -139,8 +160,10 @@ input[type="submit"] {
 }
 
 textarea {
-	width: 300px;
+	width: 400px;
 	font-size: 14px;
+	resize: both;
+    overflow: all;
 }
 
 table {

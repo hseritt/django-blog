@@ -1,35 +1,22 @@
 {% include 'common_headers.html' %}
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		
 		{% include 'common_head.html' %}
 
-		{% include 'common_nav.html' %}
+		<div class="row">
 
-		<article>
-			
-			{% for post in post_list %}
-				<section class="article_blurb">
-					<h3>
-						{{ post.title }}
-					</h3>
+			<div class="col-sm-8">
 
-					{% include 'posts_post_info.html' %}
+				{% include 'common_index_page.html' %}
 
-					<p>
-						{{ post.formatted_markdown|safe|truncatewords_html:50 }}
-					</p>
+			</div>
 
-					<p>
-						<a href="/post/{{ post.slugged_title }}/" class="article_link">
-							>>> MORE
-						</a>
-					</p>
-				</section>
+			<div class="col-sm-4">
+				{% include 'common_nav.html' %}
+			</div>
 
-			{% endfor %}
-
-		</article>
+		</div>
 
 		{% include 'common_footer.html' %}
 	</div>

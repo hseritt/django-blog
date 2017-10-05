@@ -1,32 +1,24 @@
 {% include 'common_headers.html' %}
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		
 		{% include 'common_head.html' %}
 
-		{% include 'common_nav.html' %}
+		<div class="row">
 
-		<article class="article_content">
-			{% if request.user.username == 'admin' %}
-				<p>
-					<a href="/admin/posts/post/{{ post.id }}/change/">
-						Edit Article
-					</a>
-				</p>
-			{% endif %}
-			<h3>
-				{{ post.title }}
-			</h3>
+			<div class="col-sm-8">
 
-			{% include 'posts_post_info.html' %}
-			
-			<p>
-				{{ post.formatted_markdown|safe }}
-			</p>
+				{% include 'posts_post_page.html' %}
 
-			{% include 'posts_disqus_thread.html' %}
-			
-		</article>
+			</div>
+
+			<div class="col-sm-4">
+
+				{% include 'common_nav.html' %}
+
+			</div>
+
+		</div>
 
 		{% include 'common_footer.html' %}
 	</div>
