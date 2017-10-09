@@ -5,9 +5,25 @@ from django.shortcuts import render
 from blog.settings import SITE_NAME
 from posts.models import Category, Post
 from common.contexts import common_view_context
+from analytics.models import PageRequest
 
 
 def index(request):
+
+    if 'HTTP_REFERER' in request.META:
+        http_referer = request.META['HTTP_REFERER']
+    else:
+        http_referer = None
+
+    pr = PageRequest.objects.create(
+        name='Index',
+        url='/',
+        ip_addr=request.META['REMOTE_ADDR'],
+    )
+
+    if http_referer:
+        pr.referer = http_referer
+        pr.save()
 
     post_list = Post.objects.all().order_by('-published')
     
@@ -26,6 +42,21 @@ def index(request):
 
 
 def about(request):
+
+    if 'HTTP_REFERER' in request.META:
+        http_referer = request.META['HTTP_REFERER']
+    else:
+        http_referer = ''
+
+    pr = PageRequest.objects.create(
+        name='About',
+        url='/about',
+        ip_addr=request.META['REMOTE_ADDR'],
+    )
+
+    if http_referer:
+        pr.referer = http_referer
+        pr.save()
     
     view_context = {
         'page_title': 'About',

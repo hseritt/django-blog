@@ -5,9 +5,25 @@ from django.shortcuts import render
 from blog.settings import SITE_NAME
 from .models import Category, Post
 from common.contexts import common_view_context
+from analytics.models import PageRequest
 
 
 def post_detail(request, slugged_title):
+
+    if 'HTTP_REFERER' in request.META:
+        http_referer = request.META['HTTP_REFERER']
+    else:
+        http_referer = ''
+
+    pr = PageRequest.objects.create(
+        name='Post - {}'.format(slugged_title),
+        url='/post/{}'.fomrat(slugged_title),
+        ip_addr=request.META['REMOTE_ADDR'],
+    )
+
+    if http_referer:
+        pr.referer = http_referer
+        pr.save()
 
     post = Post.objects.get(slugged_title=slugged_title)
     
@@ -26,6 +42,21 @@ def post_detail(request, slugged_title):
 
 
 def posts_filtered(request):
+
+    if 'HTTP_REFERER' in request.META:
+        http_referer = request.META['HTTP_REFERER']
+    else:
+        http_referer = ''
+
+    pr = PageRequest.objects.create(
+        name='Filtered Post - {}'.format(request.GET['category_name']),
+        url='/posts/filtered/{}'.format(request.GET['category_name']),
+        ip_addr=request.META['REMOTE_ADDR'],
+    )
+
+    if http_referer:
+        pr.referer = http_referer
+        pr.save()
 
     filt = request.GET['category_name']
 

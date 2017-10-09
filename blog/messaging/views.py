@@ -7,9 +7,24 @@ from blog.settings import SITE_NAME
 from posts.models import Post
 from common.contexts import common_view_context
 from .forms import ContactForm
-
+from analytics.models import PageRequest
 
 def contact(request):
+
+    if 'HTTP_REFERER' in request.META:
+        http_referer = request.META['HTTP_REFERER']
+    else:
+        http_referer = ''
+
+    pr = PageRequest.objects.create(
+        name='Contact',
+        url='/contact/',
+        ip_addr=request.META['REMOTE_ADDR'],
+    )
+
+    if http_referer:
+        pr.referer = http_referer
+        pr.save()
 
     if request.method == "GET":
         contact_form = ContactForm()

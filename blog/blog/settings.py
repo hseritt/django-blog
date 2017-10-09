@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'common',
     'posts',
     'messaging',
+    'analytics',
 ]
 
 MIDDLEWARE = [
