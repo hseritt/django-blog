@@ -5,10 +5,10 @@ from django.db import models
 
 class PageRequest(models.Model):
 
-    name = models.CharField('Name', max_length=50)
+    name = models.CharField('Name', max_length=255)
     url = models.CharField('URL', max_length=255)
     req_dt = models.DateTimeField('Request Date', auto_now_add=True)
-    ip_addr = models.CharField('IP Address of Request', max_length=16)
+    ip_addr = models.CharField('IP Address of Request', max_length=255)
     referer = models.CharField('Referer', max_length=255, null=True, blank=True)
 
     def __unicode__(self):

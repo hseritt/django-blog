@@ -17,7 +17,7 @@ def post_detail(request, slugged_title):
 
     pr = PageRequest.objects.create(
         name='Post - {}'.format(slugged_title),
-        url='/post/{}'.fomrat(slugged_title),
+        url='/post/{}'.format(slugged_title),
         ip_addr=request.META['REMOTE_ADDR'],
     )
 
