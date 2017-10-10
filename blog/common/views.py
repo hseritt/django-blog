@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from blog.settings import SITE_NAME
 from posts.models import Category, Post
-from common.contexts import common_view_context
+from common.contexts import get_common_view_context
 from analytics.models import PageRequest
 
 
@@ -32,7 +32,7 @@ def index(request):
         'post_list': post_list,
     }
 
-    view_context.update(common_view_context)
+    view_context.update(get_common_view_context())
 
     return render(
         request,
@@ -62,7 +62,7 @@ def about(request):
         'page_title': 'About',
     }
 
-    view_context.update(common_view_context)
+    view_context.update(get_common_view_context())
 
     return render(
         request,

@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from blog.settings import SITE_NAME
 from posts.models import Post
-from common.contexts import common_view_context
+from common.contexts import get_common_view_context
 from .forms import ContactForm
 from analytics.models import PageRequest
 
@@ -41,7 +41,7 @@ def contact(request):
         'page_title': 'Contact',
     }
 
-    view_context.update(common_view_context)
+    view_context.update(get_common_view_context())
 
     return render(
         request,
