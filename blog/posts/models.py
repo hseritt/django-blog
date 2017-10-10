@@ -8,7 +8,7 @@ from markdownx.utils import markdownify
 
 
 class Category(models.Model):
-    parent = models.ForeignKey('self')
+    parent = models.ForeignKey('self', null=True, blank=True)
     name = models.CharField(max_length=50, unique=True)
     display = models.BooleanField(default=True)
 
