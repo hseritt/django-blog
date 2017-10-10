@@ -1,5 +1,7 @@
-from django.conf.urls import url, include
-from django.contrib import admin
+"""
+Urls patterns for posts app.
+"""
+from django.conf.urls import url
 from .views import post_detail, posts_filtered
 
 
@@ -10,8 +12,8 @@ urlpatterns = [
         name='posts_filtered',
     ),
     url(
-    	regex=r'^(?P<slugged_title>.+)/$',
-    	view=post_detail,
-    	name='post_detail',
+        regex=r'^(?P<slugged_title>.+)/$',
+        view=post_detail,
+        name='post_detail',
     ),
 ]

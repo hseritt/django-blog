@@ -1,32 +1,36 @@
 # -*- coding: utf-8 -*-
+"""
+Views module for posts app.
+"""
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from blog.settings import SITE_NAME
-from .models import Category, Post
 from common.contexts import get_common_view_context
 from analytics.models import PageRequest
+from .models import Category, Post
 
 
 def post_detail(request, slugged_title):
-
+    """
+    View for /post/{}
+    """
     if 'HTTP_REFERER' in request.META:
         http_referer = request.META['HTTP_REFERER']
     else:
         http_referer = ''
 
-    pr = PageRequest.objects.create(
+    page_request = PageRequest.objects.create(
         name='Post - {}'.format(slugged_title),
         url='/post/{}'.format(slugged_title),
         ip_addr=request.META['REMOTE_ADDR'],
     )
 
     if http_referer:
-        pr.referer = http_referer
-        pr.save()
+        page_request.referer = http_referer
+        page_request.save()
 
     post = Post.objects.get(slugged_title=slugged_title)
-    
+
     view_context = {
         'page_title': post.title,
         'post': post,
@@ -42,21 +46,23 @@ def post_detail(request, slugged_title):
 
 
 def posts_filtered(request):
-
+    """
+    View for /posts/filter/?category_name={}
+    """
     if 'HTTP_REFERER' in request.META:
         http_referer = request.META['HTTP_REFERER']
     else:
         http_referer = ''
 
-    pr = PageRequest.objects.create(
+    page_request = PageRequest.objects.create(
         name='Filtered Post - {}'.format(request.GET['category_name']),
         url='/posts/filtered/{}'.format(request.GET['category_name']),
         ip_addr=request.META['REMOTE_ADDR'],
     )
 
     if http_referer:
-        pr.referer = http_referer
-        pr.save()
+        page_request.referer = http_referer
+        page_request.save()
 
     filt = request.GET['category_name']
 

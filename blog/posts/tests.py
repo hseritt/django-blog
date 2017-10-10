@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+Tests module for posts app.
+"""
 from __future__ import unicode_literals
 
 from django.contrib.auth.models import User
@@ -9,9 +12,13 @@ from common.models import PageElement
 
 
 class PostsViewsTestCase(TestCase):
-
+    """
+    Test case for Posts views.
+    """
     def create_test_post(self):
-
+        """
+        Create a test post for use with other tests.
+        """
         admin_user = User.objects.create(
             username='admin',
             email='admin@localhost',
@@ -21,7 +28,7 @@ class PostsViewsTestCase(TestCase):
             name='TestCategory',
         )
         category.save()
-        
+
         self.post = Post(
             title='This is my title',
             author=admin_user,
@@ -35,11 +42,15 @@ class PostsViewsTestCase(TestCase):
         self.post.save()
 
     def setUp(self):
+        """ setup """
         PageElement.objects.create(name='Tag Line', text='some text')
         PageElement.objects.create(name='Footer Text', text='some text')
         self.create_test_post()
 
     def test_post_get(self):
+        """
+        Test GET /post/{}
+        """
         client = Client()
         response = client.get(
             '/post/{}/'.format(self.post.slugged_title)
@@ -48,6 +59,9 @@ class PostsViewsTestCase(TestCase):
         self.assertTrue(self.post.title in response.content)
 
     def test_post_filtered(self):
+        """
+        Test GET /post/filter/?category_name={}
+        """
         client = Client()
         for category in self.post.categories.all():
             url = '/post/filter/?category_name={}'.format(category.name)

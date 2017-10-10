@@ -1,30 +1,34 @@
 # -*- coding: utf-8 -*-
+"""
+Views module for messaging app.
+"""
 from __future__ import unicode_literals
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from blog.settings import SITE_NAME
-from posts.models import Post
 from common.contexts import get_common_view_context
-from .forms import ContactForm
 from analytics.models import PageRequest
+from .forms import ContactForm
+
 
 def contact(request):
-
+    """
+    View for /contact/
+    """
     if 'HTTP_REFERER' in request.META:
         http_referer = request.META['HTTP_REFERER']
     else:
         http_referer = ''
 
-    pr = PageRequest.objects.create(
+    page_request = PageRequest.objects.create(
         name='Contact',
         url='/contact/',
         ip_addr=request.META['REMOTE_ADDR'],
     )
 
     if http_referer:
-        pr.referer = http_referer
-        pr.save()
+        page_request.referer = http_referer
+        page_request.save()
 
     if request.method == "GET":
         contact_form = ContactForm()
@@ -33,7 +37,8 @@ def contact(request):
         if contact_form.is_valid():
             contact_form.save()
             return HttpResponse(
-                "<script>alert('Your message was successfully delivered.'); window.location.href='/';</script>"
+                "<script>alert('Your message was successfully delivered.'); " \
+                "window.location.href='/';</script>"
             )
 
     view_context = {

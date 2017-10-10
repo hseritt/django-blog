@@ -1,10 +1,15 @@
 # -*- coding: utf-8 -*-
+"""
+Models for analytics app.
+"""
 from __future__ import unicode_literals
 
 from django.db import models
 
 class PageRequest(models.Model):
-
+    """
+    PageRequest model for user page requests.
+    """
     name = models.CharField('Name', max_length=255)
     url = models.CharField('URL', max_length=255)
     req_dt = models.DateTimeField('Request Date', auto_now_add=True)
