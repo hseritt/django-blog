@@ -3,6 +3,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from lib.util import get_http_referer
 from common.contexts import get_common_view_context
 from analytics.models import PageRequest
 from .models import Category, Post
@@ -10,16 +11,13 @@ from .models import Category, Post
 
 def post_detail(request, slugged_title):
     """View for /post/{}"""
-    if 'HTTP_REFERER' in request.META:
-        http_referer = request.META['HTTP_REFERER']
-    else:
-        http_referer = ''
-
     page_request = PageRequest.objects.create(
         name='Post - {}'.format(slugged_title),
         url='/post/{}'.format(slugged_title),
         ip_addr=request.META['REMOTE_ADDR'],
     )
+
+    http_referer = get_http_referer(request)
 
     if http_referer:
         page_request.referer = http_referer
@@ -43,10 +41,7 @@ def post_detail(request, slugged_title):
 
 def posts_filtered(request):
     """View for /posts/filter/?category_name={}"""
-    if 'HTTP_REFERER' in request.META:
-        http_referer = request.META['HTTP_REFERER']
-    else:
-        http_referer = ''
+    http_referer = get_http_referer(request)
 
     page_request = PageRequest.objects.create(
         name='Filtered Post - {}'.format(request.GET['category_name']),

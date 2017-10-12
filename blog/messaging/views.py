@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 
 from django.http import HttpResponse
 from django.shortcuts import render
+from lib.util import get_http_referer
 from common.contexts import get_common_view_context
 from analytics.models import PageRequest
 from .forms import ContactForm
@@ -12,10 +13,7 @@ from .forms import ContactForm
 
 def contact(request):
     """View for /contact/"""
-    if 'HTTP_REFERER' in request.META:
-        http_referer = request.META['HTTP_REFERER']
-    else:
-        http_referer = ''
+    http_referer = get_http_referer(request)
 
     page_request = PageRequest.objects.create(
         name='Contact',

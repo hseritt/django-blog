@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from blog.settings import SITE_NAME
+from lib.util import get_http_referer
 from posts.models import Post
 from common.contexts import get_common_view_context
 from analytics.models import PageRequest
@@ -11,10 +12,7 @@ from analytics.models import PageRequest
 
 def index(request):
     """View for /"""
-    if 'HTTP_REFERER' in request.META:
-        http_referer = request.META['HTTP_REFERER']
-    else:
-        http_referer = None
+    http_referer = get_http_referer(request)
 
     page_request = PageRequest.objects.create(
         name='Index',
@@ -44,10 +42,7 @@ def index(request):
 
 def about(request):
     """View for /about/"""
-    if 'HTTP_REFERER' in request.META:
-        http_referer = request.META['HTTP_REFERER']
-    else:
-        http_referer = ''
+    http_referer = get_http_referer(request)
 
     page_request = PageRequest.objects.create(
         name='About',
