@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Views module for analytics app.
+"""Views module for analytics app.
 """
 from __future__ import unicode_literals
 

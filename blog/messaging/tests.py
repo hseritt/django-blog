@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Tests module for messaging app.
+"""Tests module for messaging app.
 """
 from __future__ import unicode_literals
 
@@ -10,18 +9,14 @@ from messaging.models import Contact
 
 
 class MessagingViewsTestCase(TestCase):
-    """
-    Test for all Messaging views.
-    """
+    """Test for all Messaging views."""
     def setUp(self):
         """ setup """
         PageElement.objects.create(name='Tag Line', text='some text')
         PageElement.objects.create(name='Footer Text', text='some text')
 
     def test_contact_get(self):
-        """
-        Test for GET /contact/
-        """
+        """Test for GET /contact/"""
         client = Client()
         response = client.get('/contact/')
         self.assertEqual(response.status_code, 200)
@@ -30,9 +25,7 @@ class MessagingViewsTestCase(TestCase):
         self.assertTrue('Message:' in response.content)
 
     def test_contact_post(self):
-        """
-        Test for POST /contact/
-        """
+        """Test for POST /contact/"""
         client = Client()
         client.post(
             '/contact/',

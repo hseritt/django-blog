@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Views module for common app.
-"""
+"""Views module for common app."""
 from __future__ import unicode_literals
 
 from django.shortcuts import render
@@ -12,9 +10,7 @@ from analytics.models import PageRequest
 
 
 def index(request):
-    """
-    View for /
-    """
+    """View for /"""
     if 'HTTP_REFERER' in request.META:
         http_referer = request.META['HTTP_REFERER']
     else:
@@ -47,10 +43,7 @@ def index(request):
 
 
 def about(request):
-    """
-    View for /about/
-    """
-
+    """View for /about/"""
     if 'HTTP_REFERER' in request.META:
         http_referer = request.META['HTTP_REFERER']
     else:

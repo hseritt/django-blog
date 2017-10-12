@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-"""
-Script to slugify existing posts. No longer needed.
+"""Script to slugify existing posts. No longer needed.
 """
 import os
 import sys

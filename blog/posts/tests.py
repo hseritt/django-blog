@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Tests module for posts app.
+"""Tests module for posts app.
 """
 from __future__ import unicode_literals
 
@@ -12,13 +11,9 @@ from common.models import PageElement
 
 
 class PostsViewsTestCase(TestCase):
-    """
-    Test case for Posts views.
-    """
+    """Test case for Posts views."""
     def create_test_post(self):
-        """
-        Create a test post for use with other tests.
-        """
+        """Create a test post for use with other tests."""
         admin_user = User.objects.create(
             username='admin',
             email='admin@localhost',
@@ -48,9 +43,7 @@ class PostsViewsTestCase(TestCase):
         self.create_test_post()
 
     def test_post_get(self):
-        """
-        Test GET /post/{}
-        """
+        """Test GET /post/{}"""
         client = Client()
         response = client.get(
             '/post/{}/'.format(self.post.slugged_title)
@@ -59,9 +52,7 @@ class PostsViewsTestCase(TestCase):
         self.assertTrue(self.post.title in response.content)
 
     def test_post_filtered(self):
-        """
-        Test GET /post/filter/?category_name={}
-        """
+        """Test GET /post/filter/?category_name={}"""
         client = Client()
         for category in self.post.categories.all():
             url = '/post/filter/?category_name={}'.format(category.name)

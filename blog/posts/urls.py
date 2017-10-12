@@ -1,5 +1,4 @@
-"""
-Urls patterns for posts app.
+"""Urls patterns for posts app.
 """
 from django.conf.urls import url
 from .views import post_detail, posts_filtered

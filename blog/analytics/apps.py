@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Apps settings for analytics app.
+"""Apps settings for analytics app.
 """
 from __future__ import unicode_literals
 

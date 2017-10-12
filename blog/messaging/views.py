@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Views module for messaging app.
+"""Views module for messaging app.
 """
 from __future__ import unicode_literals
 
@@ -12,9 +11,7 @@ from .forms import ContactForm
 
 
 def contact(request):
-    """
-    View for /contact/
-    """
+    """View for /contact/"""
     if 'HTTP_REFERER' in request.META:
         http_referer = request.META['HTTP_REFERER']
     else:

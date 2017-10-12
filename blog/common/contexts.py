@@ -1,5 +1,4 @@
-"""
-A context module for common app.
+"""A context module for common app.
 """
 
 from common.models import PageElement, SiteLink, RecommendedLink, SocialMediaLink
@@ -7,8 +6,7 @@ from posts.models import Category
 
 
 def get_common_view_context():
-    """
-    Returns view context for common app views.
+    """Returns view context for common app views.
     """
     tag_line = PageElement.objects.get(name='Tag Line', is_visible=True)
     footer_text = PageElement.objects.get(name='Footer Text', is_visible=True)

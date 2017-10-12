@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Models module for posts app.
+"""Models module for posts app.
 """
 from __future__ import unicode_literals
 
@@ -11,9 +10,7 @@ from markdownx.utils import markdownify
 
 
 class Category(models.Model):
-    """
-    Category for posts.
-    """
+    """Category for posts."""
     parent = models.ForeignKey('self', null=True, blank=True)
     name = models.CharField(max_length=50, unique=True)
     display = models.BooleanField(default=True)
@@ -30,9 +27,7 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    """
-    Blog posts
-    """
+    """Blog posts"""
     title = models.CharField(max_length=100, unique=True)
     author = models.ForeignKey(User)
     content = MarkdownxField()
@@ -45,9 +40,7 @@ class Post(models.Model):
 
     @property
     def formatted_markdown(self):
-        """
-        For use with markdown fields.
-        """
+        """For use with markdown fields."""
         return markdownify(self.content)
 
     def __unicode__(self):

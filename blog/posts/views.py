@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Views module for posts app.
-"""
+"""Views module for posts app."""
 from __future__ import unicode_literals
 
 from django.shortcuts import render
@@ -11,9 +9,7 @@ from .models import Category, Post
 
 
 def post_detail(request, slugged_title):
-    """
-    View for /post/{}
-    """
+    """View for /post/{}"""
     if 'HTTP_REFERER' in request.META:
         http_referer = request.META['HTTP_REFERER']
     else:
@@ -46,9 +42,7 @@ def post_detail(request, slugged_title):
 
 
 def posts_filtered(request):
-    """
-    View for /posts/filter/?category_name={}
-    """
+    """View for /posts/filter/?category_name={}"""
     if 'HTTP_REFERER' in request.META:
         http_referer = request.META['HTTP_REFERER']
     else:

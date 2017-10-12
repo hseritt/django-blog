@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Models module for common app.
+"""Models module for common app.
 """
 from __future__ import unicode_literals
 
@@ -19,9 +18,7 @@ class BlogLink(models.Model):
 
 
 class SiteLink(BlogLink):
-    """
-    Links like home, contact, about, etc.
-    """
+    """Links like home, contact, about, etc."""
     class Meta:
         verbose_name = 'Site Link'
         verbose_name_plural = 'Site Links'
@@ -30,9 +27,7 @@ class SiteLink(BlogLink):
 
 
 class RecommendedLink(BlogLink):
-    """
-    External links outside this blog.
-    """
+    """External links outside this blog."""
     class Meta:
         verbose_name = 'Recommended Link'
         verbose_name_plural = 'Recommended Links'
@@ -41,9 +36,7 @@ class RecommendedLink(BlogLink):
 
 
 class SocialMediaLink(BlogLink):
-    """
-    Social media links.
-    """
+    """Social media links."""
     class Meta:
         verbose_name = 'Social Media Link'
         verbose_name_plural = 'Social Media Links'
@@ -52,9 +45,7 @@ class SocialMediaLink(BlogLink):
 
 
 class PageElement(models.Model):
-    """
-    Parts of pages.
-    """
+    """Parts of pages."""
     name = models.CharField(max_length=50, unique=True)
     text = models.TextField()
     is_visible = models.BooleanField(default=True)

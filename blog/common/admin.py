@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Django admin settings for common app.
+"""Django admin settings for common app.
 """
 from __future__ import unicode_literals
 

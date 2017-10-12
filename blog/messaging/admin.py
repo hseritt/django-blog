@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Django admin settings for messaging app.
+"""Django admin settings for messaging app.
 """
 from __future__ import unicode_literals
 
