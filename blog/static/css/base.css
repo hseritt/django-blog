@@ -126,7 +126,7 @@ a:hover {
 a.article_link {
 	color: #2e60b2;
 	font-weight: bold;
-	font-size: smaller;
+	font-size: 14px;
 }
 
 a.mp_link {
