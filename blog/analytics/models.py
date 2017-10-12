@@ -14,5 +14,9 @@ class PageRequest(models.Model):
     ip_addr = models.CharField('IP Address of Request', max_length=255)
     referer = models.CharField('Referer', max_length=255, null=True, blank=True)
 
+    class Meta:
+        verbose_name = 'Page Request'
+        verbose_name_plural = 'Page Requests'
+
     def __unicode__(self):
         return '{} - {}'.format(self.name, self.req_dt)
