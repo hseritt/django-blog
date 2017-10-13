@@ -1,5 +1,5 @@
 """URLs router configs for analytics app."""
-from django.conf.urls import url, include
+from django.conf.urls import url
 from .views import index
 
 

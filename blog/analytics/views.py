@@ -11,11 +11,12 @@ from posts.models import Post
 from .models import PageRequest
 
 def user_is_admin(user):
+    """Returns True if user is a superuser. Essentially a check for admin."""
     return user.is_superuser
 
 @user_passes_test(user_is_admin, login_url='/admin/login/')
 def index(request):
-
+    """View for /analytics/"""
     post_list = Post.objects.all().order_by('-created')
 
     for post in post_list:
