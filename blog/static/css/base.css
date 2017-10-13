@@ -142,6 +142,10 @@ img.about_pic {
 
 th {
 	text-align: left;
+}
+
+td {
+	padding: 7px;
 	vertical-align: top;
 }
 
@@ -168,6 +172,10 @@ textarea {
 
 table {
 	border-spacing: 10px;
+}
+
+table.analytics_post_list {
+	border-spacing: 30px;
 }
 
 span.field_label {

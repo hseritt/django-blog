@@ -21,6 +21,7 @@ from messaging.views import contact
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^analytics/', include('analytics.urls')),
     url(r'^markdownx/', include('markdownx.urls')),
     url(r'^post/', include('posts.urls')),
     url(

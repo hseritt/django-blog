@@ -1,0 +1,52 @@
+{% include 'common_headers.html' %}
+<body>
+	<div class="container-fluid">
+		
+		{% include 'common_head.html' %}
+
+		<div class="row">
+
+			<div class="col-md-1"></div>
+
+			<div class="col-md-7">
+
+				<h2>Analytics Post List</h2>
+
+				<table class="analytics_post_list">
+					{% for post in post_list %}
+						<tr>
+							<th>Title: </th>
+							<td>{{ post.title }}</td>
+						</tr>
+						<tr>
+							<th>Created: </th>
+							<td>{{ post.created|date:"D M d, Y" }}</td>
+						</tr>
+						<tr>
+							<th>Link to Article: </th>
+							<td>
+								<a href="/post/{{ post.slugged_title }}/">
+									{{ post.slugged_title }}
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<th>Hits: </th>
+							<td>{{ post.hits }}</td>
+						</tr>
+						<tr><td style="padding-bottom: 20px"></td></tr>
+					{% endfor %}
+				</table>
+			
+			</div>
+
+			<div class="col-md-4">
+				{% include 'common_nav.html' %}
+			</div>
+
+		</div>
+
+		{% include 'common_footer.html' %}
+	</div>
+</body>
+</html>
