@@ -1,3 +1,51 @@
 <footer>
-    {{ footer_text.text|safe }}
+	<div class="row">
+		<div class="col-md-3" ></div>
+		</div>
+    	
+    	<div class="col-md-3 footer" style="">
+    		<h4>Lawyering Up & Shameless Plugs</h4>
+    		{{ footer_text.text|safe }}
+    		<h4 class="links_header">Links</h4>
+			<ul>
+				{% for link in site_link_list %}
+				<li>
+					<a href="{{ link.url }}">
+						{{ link.name }}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+			
+			<h4>Social Media</h4>
+			<ul>
+				{% for link in social_media_link_list %}
+				<li>
+					<a href="{{ link.url }}">
+						{{ link.name }}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+
+    	</div>
+
+    	<div class="col-md-3 footer" style="">
+    		
+    		<h4 class="footer_links">Recommendations</h4>
+
+				<ul>
+					{% for link in recommended_link_list %}
+					<li>
+						<a href="{{ link.url }}">
+							{{ link.name }}
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+
+    	</div>
+    	
+    	<div class="col-md-3"></div>
+    </div>
 </footer>

@@ -42,6 +42,11 @@ div.disqus_thread {
 	margin-bottom: 50px;
 }
 
+div.footer {
+	padding: 20px;
+	margin-left: 90px;
+}
+
 header, footer {
 	padding: 0.5em;
 	color: white;
@@ -60,11 +65,13 @@ header {
 }
 
 footer {
-	font-size: 10px;
+	font-size: 12px;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	box-shadow: 0px 500px 0px 500px #000;
+	padding: 10px;
+	text-align: left;
 }
 
 nav {
@@ -106,6 +113,11 @@ h3.links_header {
 h4 {
 	font-weight: bold;
 	margin-top: 25px;
+}
+
+h4.footer_links {
+	font-weight: bold;
+	/* margin-top: 0px; */
 }
 
 h4.comments_welcome {
@@ -185,5 +197,9 @@ span.field_label {
 span.field_element {
 	display: block;
 	margin-bottom: 20px;
+}
+
+span.footer_text {
+	margin-left: 100px;
 }
 
