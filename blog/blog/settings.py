@@ -60,7 +60,9 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'themes'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,6 +139,7 @@ STATICFILES_DIRS = [
 # Site stuff
 
 SITE_NAME = 'dev.prodigi.us'
+THEME = 'prodigius'
 
 
 # Markdownx stuff

@@ -10,12 +10,12 @@
 		{{ post.title }}
 	</h3>
 
-	{% include 'posts_post_info.html' %}
+	{% include 'prodigius/posts_post_info.html' %}
 	
 	<p>
 		{{ post.formatted_markdown|safe }}
 	</p>
 
-	{% include 'posts_disqus_thread.html' %}
+	{% include 'prodigius/posts_disqus_thread.html' %}
 	
 </article>

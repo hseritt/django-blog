@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from blog.settings import SITE_NAME
+from blog.settings import SITE_NAME, THEME
 from lib.util import get_http_referer
 from posts.models import Post
 from common.contexts import get_common_view_context
@@ -35,7 +35,7 @@ def index(request):
 
     return render(
         request,
-        'common_index.html',
+        '{}/common_index.html'.format(THEME),
         view_context,
     )
 
@@ -62,6 +62,6 @@ def about(request):
 
     return render(
         request,
-        'common_about.html',
+        '{}/common_about.html'.format(THEME),
         view_context,
     )

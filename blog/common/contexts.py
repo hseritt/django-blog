@@ -1,6 +1,7 @@
 """A context module for common app.
 """
 
+from blog.settings import THEME
 from common.models import PageElement, SiteLink, RecommendedLink, SocialMediaLink
 from posts.models import Category
 
@@ -23,6 +24,7 @@ def get_common_view_context():
         'site_link_list': site_link_list,
         'social_media_link_list': social_media_link_list,
         'tag_line': tag_line,
+        'theme': THEME,
     }
 
     return common_view_context

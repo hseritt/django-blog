@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 
 from django.http import HttpResponse
 from django.shortcuts import render
+from blog.settings import THEME
 from lib.util import get_http_referer
 from common.contexts import get_common_view_context
 from analytics.models import PageRequest
@@ -45,6 +46,6 @@ def contact(request):
 
     return render(
         request,
-        'messaging_contact.html',
+        '{}/messaging_contact.html'.format(THEME),
         view_context,
     )

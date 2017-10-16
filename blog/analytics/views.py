@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 
 from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import render
-from blog.settings import SITE_NAME
+from blog.settings import SITE_NAME, THEME
 from common.contexts import get_common_view_context
 from posts.models import Post
 from .models import PageRequest
@@ -35,6 +35,6 @@ def index(request):
 
     return render(
         request,
-        'analytics_index.html',
+        '{}/analytics_index.html'.format(THEME),
         view_context,
     )

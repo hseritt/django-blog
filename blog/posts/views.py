@@ -3,6 +3,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from blog.settings import THEME
 from lib.util import get_http_referer
 from common.contexts import get_common_view_context
 from analytics.models import PageRequest
@@ -34,7 +35,7 @@ def post_detail(request, slugged_title):
 
     return render(
         request,
-        'posts_post.html',
+        '{}/posts_post.html'.format(THEME),
         view_context,
     )
 
@@ -70,6 +71,6 @@ def posts_filtered(request):
 
     return render(
         request,
-        'common_index.html',
+        '{}/common_index.html'.format(THEME),
         view_context,
     )
