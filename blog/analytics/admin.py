@@ -7,4 +7,7 @@ from django.contrib import admin
 from .models import PageRequest
 
 
-admin.site.register(PageRequest)
+class PageRequestAdmin(admin.ModelAdmin):
+    readonly_fields = ['request_date',]
+
+admin.site.register(PageRequest, PageRequestAdmin)
