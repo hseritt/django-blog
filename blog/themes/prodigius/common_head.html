@@ -1,8 +1,10 @@
+{% load static %}
+
 <div class="row">
 	<div class="col-md-12">
 		<header>
 
-    		<img src="/static/img/cheese2.jpg">
+    		<img src="{% static 'img/cheese2.jpg' %}">
 
     		<p class="header_text">
         		{{ tag_line.text|safe }}

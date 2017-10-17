@@ -25,7 +25,7 @@
 						<tr>
 							<th>Link to Article: </th>
 							<td>
-								<a href="/post/{{ post.slugged_title }}/">
+								<a href="{% url 'post_detail' post.slugged_title %}">
 									{{ post.slugged_title }}
 								</a>
 							</td>

@@ -13,7 +13,8 @@
 			</p>
 
 			<p>
-				<a href="/post/{{ post.slugged_title }}/" class="article_link">
+				<a href="{% url 'post_detail' post.slugged_title %}"
+					class="article_link">
 					Read More
 				</a>
 			</p>
