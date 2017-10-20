@@ -11,16 +11,12 @@ from markdownx.utils import markdownify
 
 class Category(models.Model):
     """Category for posts."""
-    parent = models.ForeignKey('self', null=True, blank=True)
     name = models.CharField(max_length=50, unique=True)
     display = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
-        unique_together = (
-            ('name', 'parent'),
-        )
 
     def __unicode__(self):
         return self.name
