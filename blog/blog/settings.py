@@ -148,4 +148,5 @@ MARKDOWNX_MARKDOWN_EXTENSIONS = [
     'markdown.extensions.sane_lists',
     'markdown.extensions.nl2br',
     'markdown.extensions.extra',
+    'markdown.extensions.fenced_code',
 ]

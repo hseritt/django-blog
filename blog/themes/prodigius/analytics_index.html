@@ -16,7 +16,11 @@
 					{% for post in post_list %}
 						<tr>
 							<th>Title: </th>
-							<td>{{ post.title }}</td>
+							<td>
+								<a href="/analytics/post/{{ post.slugged_title }}/">
+									{{ post.title }}
+								</a>
+							</td>
 						</tr>
 						<tr>
 							<th>Created: </th>

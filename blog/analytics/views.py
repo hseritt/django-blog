@@ -38,3 +38,27 @@ def index(request):
         '{}/analytics_index.html'.format(THEME),
         view_context,
     )
+
+
+@user_passes_test(user_is_admin, login_url='/admin/login/')
+def post(request, slugged_title):
+    """View for /analytics/post/{post.slugged_title}."""
+    post = Post.objects.get(slugged_title=slugged_title)
+    page_requests = PageRequest.objects.filter(
+        url='/post/{}'.format(post.slugged_title)
+    )
+
+    view_context = {
+        'page_requests': page_requests,
+        'page_title': '{} Analytics for POST: {}'.format(SITE_NAME, post.title),
+        'post': post,
+    }
+
+    view_context.update(get_common_view_context())
+
+    return render(
+        request,
+        '{}/analytics_post.html'.format(THEME),
+        view_context,
+    )
+

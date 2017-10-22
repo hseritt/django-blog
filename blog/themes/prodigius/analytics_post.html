@@ -1,0 +1,61 @@
+{% include 'prodigius/common_headers.html' %}
+<body>
+	<div class="container-fluid">
+		
+		{% include 'prodigius/common_head.html' %}
+
+		<div class="row">
+
+			<div class="col-md-1"></div>
+
+			<div class="col-md-7">
+
+				<h2>
+					<a href="/analytics/">
+						Analytics
+					</a> for Post:</h2>
+				<h4>{{ post.title }}</h4>
+
+				<p>Requests for page: {{ page_requests.count }}</p>
+
+				<table class="analytics_request_list">
+					<tr>
+						<th>Date & Time</th>
+						<th>IP Address</th>
+						<th>Referer</th>
+					</tr>
+					{% for req in page_requests %}
+
+						<tr>
+							<td>{{ req.request_date|date:"d M Y - H:m:s" }}</td>
+							<td>{{ req.ip_addr }}</td>
+							<td>
+								{% if req.referer %}
+									<a href="{{ req.referer }}" target="_blank">
+										{{ req.referer }}
+									</a>
+								{% else %}
+									--
+								{% endif %}
+							</td>
+						</tr>
+
+					{% endfor %}
+				</table>
+
+
+
+
+
+			</div>
+
+			<div class="col-md-4">
+				{% include 'prodigius/common_nav.html' %}
+			</div>
+
+		</div>
+
+		{% include 'prodigius/common_footer.html' %}
+	</div>
+</body>
+</html>
