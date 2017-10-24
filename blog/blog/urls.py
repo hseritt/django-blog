@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^analytics/', include('analytics.urls')),
     url(r'^markdownx/', include('markdownx.urls')),
+    url(r'^', include('poll.urls')),
     url(r'^post/', include('posts.urls')),
     url(
         regex=r'^$',
