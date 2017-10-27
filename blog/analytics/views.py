@@ -19,10 +19,10 @@ def index(request):
     """View for /analytics/"""
     post_list = Post.objects.all().order_by('-created')
 
-    for post in post_list:
-        post.hits = len(
+    for p in post_list:
+        p.hits = len(
             PageRequest.objects.filter(
-                url='/post/{}'.format(post.slugged_title)
+                url='/p/{}'.format(p.slugged_title)
             )
         )
 
@@ -43,15 +43,15 @@ def index(request):
 @user_passes_test(user_is_admin, login_url='/admin/login/')
 def post(request, slugged_title):
     """View for /analytics/post/{post.slugged_title}."""
-    post = Post.objects.get(slugged_title=slugged_title)
+    p = Post.objects.get(slugged_title=slugged_title)
     page_requests = PageRequest.objects.filter(
-        url='/post/{}'.format(post.slugged_title)
+        url='/p/{}'.format(p.slugged_title)
     )
 
     view_context = {
         'page_requests': page_requests,
         'page_title': '{} Analytics for POST: {}'.format(SITE_NAME, post.title),
-        'post': post,
+        'post': p,
     }
 
     view_context.update(get_common_view_context())
@@ -61,4 +61,3 @@ def post(request, slugged_title):
         '{}/analytics_post.html'.format(THEME),
         view_context,
     )
-

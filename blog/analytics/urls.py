@@ -10,8 +10,8 @@ urlpatterns = [
         name='analytics_index',
     ),
     url(
-    	regex=r'^post/(?P<slugged_title>.+)/$',
-    	view=post,
-    	name='analytics_post',
+        regex=r'^post/(?P<slugged_title>.+)/$',
+        view=post,
+        name='analytics_post',
     ),
 ]
