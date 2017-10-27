@@ -12,10 +12,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import warnings
 
-try:
-    import blog.env as env
-except ImportError:
-    warnings.warn('Missing environment settings', UserWarning)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.SECRET_KEY
+SECRET_KEY = '_0p0h#m(+9svu!lvm+$fv8u5w5)mv!w28221$*2**3--e6s0mv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.DEBUG
+DEBUG = True
 
-ALLOWED_HOSTS = env.ALLOWED_HOSTS
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -88,11 +84,11 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.DBNAME,
-        'HOST': env.DBHOST,
-        'USERNAME': env.DBUSER,
-        'PASSWORD': env.DBPASSWD,
-        'PORT': env.DBPORT,
+        'NAME': 'blog',
+        'HOST': '127.0.0.1',
+        'USERNAME': 'admin',
+        'PASSWORD': 'admin',
+        'PORT': '5432',
     }
 }
 
@@ -154,3 +150,11 @@ MARKDOWNX_MARKDOWN_EXTENSIONS = [
     'markdown.extensions.extra',
     'markdown.extensions.fenced_code',
 ]
+
+
+# Environmental settings. This should always be at the end of this script.
+# pylint: disable=wildcard-import, unused-wildcard-import
+try:
+    from blog.env import *
+except ImportError:
+    warnings.warn('Missing environment settings', UserWarning)
