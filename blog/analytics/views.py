@@ -10,9 +10,11 @@ from common.contexts import get_common_view_context
 from posts.models import Post
 from .models import PageRequest
 
+
 def user_is_admin(user):
     """Returns True if user is a superuser. Essentially a check for admin."""
     return user.is_superuser
+
 
 @user_passes_test(user_is_admin, login_url='/admin/login/')
 def index(request):
@@ -22,7 +24,7 @@ def index(request):
     for p in post_list:
         p.hits = len(
             PageRequest.objects.filter(
-                url='/p/{}'.format(p.slugged_title)
+                url='/post/{}'.format(p.slugged_title)
             )
         )
 
@@ -45,12 +47,14 @@ def post(request, slugged_title):
     """View for /analytics/post/{post.slugged_title}."""
     p = Post.objects.get(slugged_title=slugged_title)
     page_requests = PageRequest.objects.filter(
-        url='/p/{}'.format(p.slugged_title)
+        url='/post/{}'.format(p.slugged_title)
     )
 
     view_context = {
         'page_requests': page_requests,
-        'page_title': '{} Analytics for POST: {}'.format(SITE_NAME, post.title),
+        'page_title': '{} Analytics for POST: {}'.format(
+            SITE_NAME, p.title
+        ),
         'post': p,
     }
 
