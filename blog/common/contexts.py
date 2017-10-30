@@ -2,7 +2,9 @@
 """
 
 from blog.settings import THEME
-from common.models import PageElement, SiteLink, RecommendedLink, SocialMediaLink
+from common.models import (
+    PageElement, SiteLink, RecommendedLink, SocialMediaLink
+)
 from posts.models import Category
 
 
@@ -12,7 +14,9 @@ def get_common_view_context():
     tag_line = PageElement.objects.get(name='Tag Line', is_visible=True)
     footer_text = PageElement.objects.get(name='Footer Text', is_visible=True)
 
-    category_list = Category.objects.filter(display=True)
+    category_list = Category.objects.filter(
+        display=True, post__is_published=True
+    ).distinct().order_by('name')
     site_link_list = SiteLink.objects.filter(is_visible=True)
     recommended_link_list = RecommendedLink.objects.filter(is_visible=True)
     social_media_link_list = SocialMediaLink.objects.filter(is_visible=True)

@@ -24,7 +24,7 @@ def index(request):
         page_request.referer = http_referer
         page_request.save()
 
-    post_list = Post.objects.all().order_by('-published')
+    post_list = Post.objects.filter(is_published=True).order_by('-published')
 
     view_context = {
         'page_title': 'Welcome to {}'.format(SITE_NAME),
