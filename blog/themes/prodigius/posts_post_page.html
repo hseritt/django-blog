@@ -1,4 +1,8 @@
 <article class="article_content">
+
+	{% if request.user.username == 'admin' %}
+		{% include 'prodigius/admin_functions.html' %}
+	{% endif %}
 	
 	<h3>
 		{{ post.title }}
