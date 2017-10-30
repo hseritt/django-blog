@@ -18,7 +18,8 @@ def get_common_view_context():
         display=True, post__is_published=True
     ).distinct().order_by('name')
     site_link_list = SiteLink.objects.filter(is_visible=True)
-    recommended_link_list = RecommendedLink.objects.filter(is_visible=True)
+    recommended_link_list = RecommendedLink.objects.filter(
+        is_visible=True).order_by('name')
     social_media_link_list = SocialMediaLink.objects.filter(is_visible=True)
 
     common_view_context = {
