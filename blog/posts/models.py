@@ -40,4 +40,6 @@ class Post(models.Model):
         return markdownify(self.content)
 
     def __unicode__(self):
-        return self.title
+        return '{} / Pub? {} / {}'.format(
+            self.title, self.is_published, self.created
+        )
