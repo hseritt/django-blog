@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 
 from django.test import Client, TestCase
 from common.models import PageElement
-from messaging.models import Contact
+from messaging.models import Contact, Prospect
 
 
 class MessagingViewsTestCase(TestCase):
@@ -37,4 +37,5 @@ class MessagingViewsTestCase(TestCase):
             follow=True
         )
         self.assertTrue(Contact.objects.get(sender_name='Bill'))
+        self.assertTrue(Prospect.objects.get(email='bill@localhost'))
         self.test_contact_get()
