@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 from django.test import Client, TestCase
 from common.models import PageElement
 
+
 class CommonViewsTestCase(TestCase):
     """Test cases for all common views."""
 
