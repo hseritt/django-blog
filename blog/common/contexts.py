@@ -1,6 +1,7 @@
 """A context module for common app.
 """
 
+from django.db.models.functions import Lower
 from blog.settings import THEME
 from common.models import (
     PageElement, SiteLink, RecommendedLink, SocialMediaLink
@@ -16,7 +17,7 @@ def get_common_view_context():
 
     category_list = Category.objects.filter(
         display=True, post__is_published=True
-    ).distinct().order_by('name')
+    ).distinct().order_by(Lower('name'))
     site_link_list = SiteLink.objects.filter(is_visible=True)
     recommended_link_list = RecommendedLink.objects.filter(
         is_visible=True).order_by('name')

@@ -27,7 +27,7 @@
 		{% for category in category_list %}
 			<li>
 				<a href="{% url 'posts_filtered' %}?category_name={{ category.name }}">
-					{{ category.name }}
+					{{ category.name|title }}
 				</a>
 			</li>
 		{% endfor %}
