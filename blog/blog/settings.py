@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'posts',
     'messaging',
     'analytics',
+    'twitter',
 ]
 
 MIDDLEWARE = [
