@@ -33,6 +33,7 @@ class Post(models.Model):
     is_published = models.BooleanField(default=False)
     categories = models.ManyToManyField(Category)
     slugged_title = models.SlugField(max_length=100, unique=True)
+    tweet_enabled = models.BooleanField(default=True)
 
     @property
     def formatted_markdown(self):

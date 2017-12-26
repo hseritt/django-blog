@@ -20,7 +20,7 @@ from blog import env
 from posts.models import Post
 
 if __name__ == '__main__':
-    post_list = Post.objects.filter(is_published=True)
+    post_list = Post.objects.filter(is_published=True, tweet_enabled=True)
     post = choice(post_list)
     title = post.title
     link = post.slugged_title
