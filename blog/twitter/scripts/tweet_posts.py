@@ -4,9 +4,10 @@
 import django
 import os
 import sys
+import time
 import tweepy
 
-from random import choice
+from random import choice, seed
 
 sys.path.append('.')
 sys.path.append('..')
@@ -20,6 +21,7 @@ from blog import env
 from posts.models import Post
 
 if __name__ == '__main__':
+    seed(time.time())
     post_list = Post.objects.filter(is_published=True, tweet_enabled=True)
     post = choice(post_list)
     title = post.title
