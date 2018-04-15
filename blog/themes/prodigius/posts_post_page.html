@@ -3,17 +3,17 @@
 	{% if request.user.username == 'admin' %}
 		{% include 'prodigius/admin_functions.html' %}
 	{% endif %}
-	
-	<h3>
+
+	<h1>
 		{{ post.title }}
-	</h3>
+	</h1>
 
 	{% include 'prodigius/posts_post_info.html' %}
-	
+
 	<p>
 		{{ post.formatted_markdown|safe }}
 	</p>
 
 	{% include 'prodigius/posts_disqus_thread.html' %}
-	
+
 </article>
