@@ -3,8 +3,7 @@
 	{% for post in post_list %}
 		<section class="article_blurb">
 			<h3>
-				<a href="{% url 'post_detail' post.slugged_title %}"
-					class="article_link">
+				<a href="{% url 'post_detail' post.slugged_title %}">
 					{{ post.title }}
 				</a>
 			</h3>
