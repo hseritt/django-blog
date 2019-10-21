@@ -3,7 +3,7 @@ backports.functools-lru-cache==1.4
 certifi==2017.11.5
 chardet==3.0.4
 configparser==3.5.0
-Django==1.11.5
+Django==1.11.23
 django-disqus==0.5
 django-markdownx==2.0.21
 django-simple-poll==0.2.1
