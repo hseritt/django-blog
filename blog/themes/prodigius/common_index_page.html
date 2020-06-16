@@ -1,9 +1,11 @@
 <article>
-					
+
 	{% for post in post_list %}
 		<section class="article_blurb">
 			<h3>
-				{{ post.title }}
+				<a href="{% url 'post_detail' post.slugged_title %}">
+					{{ post.title }}
+				</a>
 			</h3>
 
 			{% include 'prodigius/posts_post_info.html' %}

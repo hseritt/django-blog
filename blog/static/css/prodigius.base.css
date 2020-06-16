@@ -92,6 +92,11 @@ h3.links_header {
 	margin-top: 60px;
 }
 
+h3 a {
+    text-decoration: none;
+    color: inherit;
+}
+
 h4 {
 	font-weight: bold;
 	margin-top: 25px;
